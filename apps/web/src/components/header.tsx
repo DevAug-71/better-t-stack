@@ -11,7 +11,10 @@ export default function Header() {
 
   return (
     <div>
-      <div className="flex flex-row items-center justify-between px-2 py-1">
+      <div className="flex flex-row items-center justify-between px-2 py-4 max-w-7xl mx-auto">
+        <Link href="/" className="-rotate-3 hover:rotate-0 transition-all">
+          Better-t-stack
+        </Link>
         <nav className="flex gap-4 text-lg">
           {links.map(({ to, label }) => {
             return (
