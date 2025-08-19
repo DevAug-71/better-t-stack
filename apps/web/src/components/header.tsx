@@ -2,8 +2,12 @@
 import Link from "next/link";
 
 import { ModeToggle } from "./mode-toggle";
+import { Authenticated } from "convex/react";
+import AvatarComp from "./comp-375";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
   const links = [
     { to: "/", label: "Home" },
     { to: "/todos", label: "Todos" },
@@ -18,13 +22,20 @@ export default function Header() {
         <nav className="flex gap-4">
           {links.map(({ to, label }) => {
             return (
-              <Link key={to} href={to}>
+              <Link
+                key={to}
+                href={to}
+                className={pathname === to ? "text-red-400" : ""}
+              >
                 {label}
               </Link>
             );
           })}
         </nav>
         <div className="flex items-center gap-2">
+          <Authenticated>
+            <AvatarComp />
+          </Authenticated>
           <ModeToggle />
         </div>
       </div>

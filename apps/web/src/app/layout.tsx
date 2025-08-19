@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "better-t-stack",
+  title: "Better-t-Stack",
   description: "better-t-stack",
 };
 
