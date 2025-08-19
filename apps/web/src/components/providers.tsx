@@ -1,16 +1,13 @@
 "use client";
 
-import { ConvexProvider, ConvexReactClient } from "convex/react";
+import { ConvexReactClient } from "convex/react";
 import { ThemeProvider } from "./theme-provider";
 import { Toaster } from "./ui/sonner";
+import { ConvexAuthNextjsProvider } from "@convex-dev/auth/nextjs";
 
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 
-export default function Providers({
-  children
-}: {
-  children: React.ReactNode
-}) {
+export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider
       attribute="class"
@@ -18,7 +15,9 @@ export default function Providers({
       enableSystem
       disableTransitionOnChange
     >
-      <ConvexProvider client={convex}>{children}</ConvexProvider>
+      <ConvexAuthNextjsProvider client={convex}>
+        {children}
+      </ConvexAuthNextjsProvider>
       <Toaster richColors />
     </ThemeProvider>
   );

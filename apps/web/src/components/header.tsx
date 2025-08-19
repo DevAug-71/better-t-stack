@@ -15,7 +15,7 @@ export default function Header() {
         <Link href="/" className="-rotate-3 hover:rotate-0 transition-all">
           Better-t-stack
         </Link>
-        <nav className="flex gap-4 text-lg">
+        <nav className="flex gap-4">
           {links.map(({ to, label }) => {
             return (
               <Link key={to} href={to}>
